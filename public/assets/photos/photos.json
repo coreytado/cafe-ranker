@@ -1,0 +1,107 @@
+{
+  "Prismatic Coffee Company": {
+    "file": "prismatic.jpg",
+    "source": "https://prismatic.coffee/",
+    "credit": "Prismatic Coffee Roasters · official Pringle Creek café photograph",
+    "kind": "branch",
+    "note": "Original JPEG embedded in official homepage hero SVG beneath Pringle Creek Cafe label. Same Pringle Creek café address is variously listed as 3996 Village Center Dr SE and 3996 Cousteau Dr SE."
+  },
+  "Prismatic Coffee Company · exterior": {
+    "file": "prismatic-exterior.jpg",
+    "source": "https://www.pccsalem.com/",
+    "credit": "Pringle Creek Community · official community website",
+    "kind": "branch"
+  },
+  "Hedge Coffee": {
+    "file": "hedge.jpg",
+    "source": "https://www.hedge.coffee/",
+    "credit": "Hedge Coffee · official Shotwell café opening photograph",
+    "kind": "branch"
+  },
+  "Hedge Coffee · courtyard": {
+    "file": "hedge-courtyard.jpg",
+    "source": "https://www.hedge.coffee/cafe",
+    "credit": "Hedge Coffee · official Shotwell café photograph",
+    "kind": "branch"
+  },
+  "Kopê House": {
+    "file": "kope.jpg",
+    "source": "https://www.kopehouse.com/",
+    "credit": "Kopê House · official Laguna Street storefront photograph",
+    "kind": "branch",
+    "note": "Official pre-opening exterior graphic with photograph of the 546 Laguna façade."
+  },
+  "Masterpiece Coffee": {
+    "file": "masterpiece.jpg",
+    "source": "https://www.masterpiececoffee.us/berkeley-shop",
+    "credit": "Masterpiece Coffee · official Berkeley shop photograph",
+    "kind": "branch",
+    "note": "Retrieved through image search from official Berkeley shop page; the shop has since migrated from Squarespace to Shopify. Original official CDN photograph remains publicly accessible. Photographer uncredited on source."
+  },
+  "Flitch Coffee": {
+    "file": "flitch.jpg",
+    "source": "https://www.flitchcoffee.com/",
+    "credit": "Flitch Coffee · official Tillery Street trailer photograph",
+    "kind": "branch"
+  },
+  "Proud Mary Coffee · Austin": {
+    "file": "proud-mary.jpg",
+    "source": "https://proudmarycoffee.com/pages/proud-mary-cafe-austin",
+    "credit": "Proud Mary Coffee · official Austin café photograph",
+    "kind": "branch"
+  },
+  "SEY Coffee": {
+    "file": "sey.jpg",
+    "source": "https://www.seycoffee.com/pages/cafe",
+    "credit": "SEY Coffee · official Grattan Street café photograph",
+    "kind": "branch"
+  },
+  "La Cabra Roastery · Brooklyn": {
+    "file": "lacabra.jpg",
+    "source": "https://lacabra.com/pages/bushwick",
+    "credit": "La Cabra · official Bushwick roastery photograph",
+    "kind": "branch"
+  },
+  "Linea Caffe": {
+    "file": "linea.jpg",
+    "source": "https://lineacaffe.com/visit-us/",
+    "credit": "Linea Caffe · official Mission District café photograph",
+    "kind": "branch",
+    "note": "Official page identifies this exterior photograph as the Mission District café at 3417 18th St, San Francisco."
+  },
+  "Moonridge Coffee Company": {
+    "file": "moonridge.jpg",
+    "source": "https://www.destinationbigbear.com/blog/moonridge-coffee-company/",
+    "credit": "Destination Big Bear · Moonridge Coffee Company guide",
+    "kind": "branch",
+    "note": "Real exterior at 42646 Moonridge Rd, Big Bear Lake. Photographer not specified on source."
+  },
+  "Más o Menos": {
+    "file": "mas-o-menos.jpg",
+    "source": "https://masomenosjt.com/",
+    "credit": "Más o Menos · official Joshua Tree café exterior",
+    "kind": "branch",
+    "note": "Official homepage background photograph, with 66031 visible above the door."
+  },
+  "Futuro": {
+    "file": "futuro.jpg",
+    "source": "https://www.palabraphx.com/futuro",
+    "credit": "Palabra / Futuro · official Phoenix café photograph",
+    "kind": "branch",
+    "note": "Official Futuro page identifies 909 N 1st Street, Phoenix. Photograph views the café through its glass frontage."
+  },
+  "Satellite Coffee Bar": {
+    "file": "satellite.jpg",
+    "source": "https://www.hineighbor.com/pages/phoenix",
+    "credit": "Neighbor · official Phoenix showroom and Satellite storefront photograph",
+    "kind": "branch",
+    "note": "Neighbor and Satellite signage visible at their shared premises, 5102 N Central Ave, Phoenix."
+  },
+  "Mutual Friends Coffee": {
+    "file": "mutual-friends.jpg",
+    "source": "https://explrer.com/guides/marfa-revisited-2026",
+    "credit": "EXPLRER · Colin Budd’s Marfa guide (2026)",
+    "kind": "branch",
+    "note": "Current café entrance at Otherside, 110 E El Paso St, explicitly pictured in the October 2026 guide. This is the current location, distinct from the earlier 120 N Austin St premises."
+  }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f6f2">
+<meta name="description" content="Corey’s café ranking, saved online and shared one choice at a time.">
+<title>Café Index — your coffee, compared</title>
+<link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+<a href="#compare" class="wordmark" aria-label="Café Index home"><span class="brand-symbol" aria-hidden="true">c.</span><span>Café Index<small>A PERSONAL COLLECTION</small></span></a>
+<nav class="main-nav" aria-label="Main navigation">
+<button data-view="compare" class="nav-item active">Compare</button>
+<button data-view="ranking" class="nav-item">Ranking <span id="nav-count" class="nav-count">0</span></button>
+<button data-view="map" class="nav-item">Map</button>
+</nav>
+<div class="header-actions"><button id="share-button" class="text-button" hidden>Share ranking ↗</button><a id="owner-signin" class="text-button" href="/signin-with-chatgpt?return_to=%2F" target="_top" hidden>Owner sign in</a><span class="private-label"><span></span>Private draft</span><button id="settings-button" class="icon-button" aria-label="Open collection settings"></button></div>
+</header>
+<main id="main">
+<section id="compare-view" class="view">
+<div class="page-heading compare-heading"><div><p class="eyebrow">A LITTLE LESS GUESSWORK</p><h1>Which café do you prefer?</h1><p class="intro">The coffee, the space, the feeling. Your overall experience.</p></div><div class="session-note"><span class="tiny-label">YOUR COLLECTION</span><strong id="collection-count">Loading…</strong><span id="ranked-count">No comparisons yet</span></div></div>
+<div class="comparison-area"><div id="comparison" class="comparison"><div class="loading-message">Opening your collection…</div></div></div>
+<div class="comparison-toolbar"><span class="keyboard-note"><kbd>1</kbd><kbd>2</kbd> to choose · or click a café</span><button id="undo-button" class="text-button" disabled>Undo last choice</button><span id="comparison-count">0 comparisons made</span></div>
+<div class="collection-strip"><div class="strip-icon" id="strip-icon"></div><div><strong>Your coffee history, ready to compare.</strong><p id="source-note">Cafés from your Maps activity. Keep the ones you know; remove the ones you haven’t visited.</p></div><button id="manage-button" class="text-button arrow-link">View collection <span>↗</span></button></div>
+</section>
+<section id="ranking-view" class="view" hidden>
+<div class="page-heading"><div><p class="eyebrow">ONE LIST, EVERYWHERE</p><h1>Your café ranking</h1><p class="intro">A personal order, shaped by the choices you make.</p></div><button id="ranking-compare" class="button button-dark">Keep comparing <span>↗</span></button></div>
+<div class="filter-bar"><label class="search-field"><span class="search-icon"></span><input id="ranking-search" type="search" placeholder="Find a café…" aria-label="Search ranked cafés"></label><select id="ranking-country" aria-label="Filter ranking by country"><option value="">All countries</option></select><select id="ranking-city" aria-label="Filter ranking by city"><option value="">All cities</option></select><span id="ranking-summary" class="filter-summary"></span></div>
+<div id="ranking-content"></div>
+<p class="ranking-footnote">Rankings are provisional, especially after only a few comparisons. More choices help refine the order.</p>
+</section>
+<section id="map-view" class="view" hidden>
+<div class="page-heading"><div><p class="eyebrow">COFFEE, WITHOUT BORDERS</p><h1>Your cafés, on the map</h1><p class="intro">Find a familiar corner. See how it stacks up.</p></div><span id="mapped-count" class="map-count"></span></div>
+<div class="filter-bar"><label class="search-field"><span class="search-icon"></span><input id="map-search" type="search" placeholder="Find a café or city…" aria-label="Search cafés on map"></label><select id="map-country" aria-label="Filter map by country"><option value="">All countries</option></select><select id="map-city" aria-label="Filter map by city"><option value="">All cities</option></select><select id="map-scope" aria-label="Filter map by ranking status"><option value="all">All candidates</option><option value="ranked">Ranked cafés</option><option value="unranked">Not yet ranked</option></select></div>
+<div class="map-layout"><div id="map" aria-label="Map of coffee shop locations"><div id="map-loading">Loading the map…</div></div><aside class="map-sidebar"><div class="map-sidebar-title"><strong id="map-result-count">Your collection</strong><span class="tiny-label">CLICK A CAFÉ TO LOCATE IT</span></div><div id="map-results"></div></aside></div>
+<p class="map-footnote"><span class="map-dot"></span>Ranked café <span class="map-dot unranked-dot"></span>Not yet ranked <span class="map-data-note">Only cafés with locations in your export appear. Some map points are approximate.</span></p>
+</section>
+</main>
+<footer class="site-footer"><span id="storage-note">Loading saved collection…</span><span class="footer-center">GOOD COFFEE. YOUR CALL.</span><button id="backup-button" class="text-button">Export backup <span>↓</span></button></footer>
+<dialog id="settings-dialog" class="panel-dialog"><div class="dialog-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Your collection</h2></div><button class="icon-button close-dialog" aria-label="Close settings">×</button></div><div class="settings-content">
+<section class="settings-section"><h3>Visit history</h3><div class="integration-row"><span class="status-dot"></span><div><strong>Automatic visit sync isn’t connected yet</strong><p>This draft starts with your Maps export. iPhone visit detection is still being explored.</p></div></div><div class="button-row"><button id="import-maps-button" class="button button-light">Import Maps activity</button><button id="add-cafe-button" class="button button-light">Add a café</button></div><p class="small-note">Import a Maps MyActivity.json file. New named coffee venues are added; cafés you removed stay removed. Files are parsed in your browser; new café candidates are saved to your online collection.</p></section>
+<section class="settings-section"><h3>Your online collection</h3><p>Comparisons, removed cafés and new additions are saved online. Sign in as Corey on any device to continue the same collection. The shared link lets others see the current ranking without editing it.</p><div class="button-row"><button id="settings-export" class="button button-light">Export backup</button><button id="restore-button" class="button button-light">Restore backup</button><button id="open-manage-button" class="text-button">Manage cafés ↗</button></div></section>
+<section class="settings-section"><h3>About this draft</h3><p>Choose one winner per comparison. Each branch is separate. Automatically sourced café photos appear where available; missing photos use a clearly labelled placeholder.</p><div class="settings-stat-grid"><div><strong id="settings-total">—</strong><span>café candidates</span></div><div><strong id="settings-votes">—</strong><span>comparisons</span></div><div><strong id="settings-excluded">—</strong><span>removed</span></div></div></section>
+</div></dialog>
+<dialog id="manage-dialog" class="panel-dialog wide-dialog"><div class="dialog-heading"><div><p class="eyebrow">KEEP WHAT YOU KNOW</p><h2>Manage cafés</h2></div><button class="icon-button close-dialog" aria-label="Close collection">×</button></div><div class="manage-controls"><input id="manage-search" type="search" placeholder="Search name, city or address…" aria-label="Search collection"><select id="manage-scope" aria-label="Show active or removed cafés"><option value="active">In your collection</option><option value="removed">Removed cafés</option></select></div><div id="manage-results" class="manage-results"></div></dialog>
+<dialog id="add-dialog" class="panel-dialog"><div class="dialog-heading"><div><p class="eyebrow">ANOTHER GOOD CUP</p><h2>Add a café</h2></div><button class="icon-button close-dialog" aria-label="Close add café">×</button></div><form id="add-form" class="add-form"><label>Café name<input name="name" required maxlength="150" placeholder="Name of the café"></label><div class="form-columns"><label>City<input name="city" required maxlength="100" placeholder="City"></label><label>Country<input name="country" required maxlength="100" placeholder="Country"></label></div><label>Branch address<input name="address" maxlength="200" placeholder="Street or neighbourhood"></label><p class="small-note">It will enter the comparison queue. A map point can be added in a later version.</p><button type="submit" class="button button-dark">Add to collection ↗</button></form></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<input id="maps-file" type="file" accept=".json,application/json" hidden>
+<input id="restore-file" type="file" accept=".json,application/json" hidden>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "sourceDate": null,
+  "cafes": [
+    {
+      "id": "example-north",
+      "name": "Example Coffee — North",
+      "city": "Example City",
+      "country": "",
+      "address": "Example north branch",
+      "directions": 0,
+      "lastActivity": "",
+      "googleIds": [],
+      "lat": null,
+      "lng": null,
+      "locationPrecision": "unknown",
+      "photo": null
+    },
+    {
+      "id": "example-south",
+      "name": "Example Coffee — South",
+      "city": "Example City",
+      "country": "",
+      "address": "Example south branch",
+      "directions": 0,
+      "lastActivity": "",
+      "googleIds": [],
+      "lat": null,
+      "lng": null,
+      "locationPrecision": "unknown",
+      "photo": null
+    }
+  ]
+}
